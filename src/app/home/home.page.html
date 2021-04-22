@@ -9,7 +9,7 @@
 <ion-content [fullscreen]="true">
   <ion-list >
     <ion-list-header>va te faire cuire un oeuf</ion-list-header>
-    <ion-item *ngFor="let egg of eggsList">
+    <ion-item *ngFor="let egg of eggsList" (click)="guessEgg(egg)">
        <ion-label>
           <h3>{{egg.title}} </h3>
           </ion-label>
@@ -23,7 +23,7 @@
 
 <ion-footer>
   <ion-toolbar class="ion-padding">
-    <ion-button expand="block">
+    <ion-button expand="block" (click)="play()">
      lancer
     </ion-button>
   </ion-toolbar>
