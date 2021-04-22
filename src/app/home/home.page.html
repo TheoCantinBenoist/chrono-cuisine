@@ -1,20 +1,30 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      chronoeuf
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-list >
+    <ion-list-header>va te faire cuire un oeuf</ion-list-header>
+    <ion-item *ngFor="let egg of eggsList">
+       <ion-label>
+          <h3>{{egg.title}} </h3>
+          </ion-label>
+       <ion-avatar slot="start">
+         <ion-img src="/assets/{{egg.image}}">
+         </ion-img>
+       </ion-avatar>
+     </ion-item>
+  </ion-list>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar class="ion-padding">
+    <ion-button expand="block">
+     lancer
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
