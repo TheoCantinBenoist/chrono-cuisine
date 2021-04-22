@@ -3,13 +3,13 @@
     <ion-title>
       chronoeuf
     </ion-title>
-    <ion-label slot="end" *ngIf="secondsLeft">
-      Temps restant {{ secondsLeft }} s
+    <ion-label slot="end">
+      <ion-icon name="egg-outline"></ion-icon>
     </ion-label>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" color="danger">
   <ion-list >
     <ion-list-header>va te faire cuire un oeuf</ion-list-header>
     <ion-item *ngFor="let egg of eggsList" (click)="guessEgg(egg)">

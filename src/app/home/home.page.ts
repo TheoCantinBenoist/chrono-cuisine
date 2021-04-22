@@ -11,12 +11,12 @@ export class HomePage {
     {
       title: 'coque',
       image: 'img/oeuf-coque.jpg',
-      timer: 3,
+      timer: 180,
     },
     {
       title: 'mollet',
       image: 'img/oeuf-mollet.jpg',
-      timer: 3,
+      timer: 300,
     }
   ]
   public chosenEgg = null;
@@ -47,7 +47,7 @@ export class HomePage {
 
   
   public play() {
-    console.log(this.chosenEgg)
+   // console.log(this.chosenEgg)
     this.startTimer();
     
   
@@ -73,18 +73,18 @@ export class HomePage {
           color:"warning", 
         });
         toast.present()
-        {true};
+        
         
        
 
-        console.log(this.secondsLeft)
+       // console.log(this.secondsLeft)
         if (this.secondsLeft == 0) {
           this.audio = new Audio(this.file)
           this.audio.load();
           this.audio.play();  
           clearInterval(this.timer);
-          toast.present()
-        {false};
+         
+        
         }
       }, 1000
     )
