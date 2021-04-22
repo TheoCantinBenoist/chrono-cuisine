@@ -3,6 +3,9 @@
     <ion-title>
       chronoeuf
     </ion-title>
+    <ion-label slot="end" *ngIf="secondsLeft">
+      Temps restant {{ secondsLeft }} s
+    </ion-label>
   </ion-toolbar>
 </ion-header>
 
@@ -23,8 +26,8 @@
 
 <ion-footer>
   <ion-toolbar class="ion-padding">
-    <ion-button expand="block" (click)="play()">
-     lancer
+    <ion-button  expand="block" (click)="action()"  [disabled]= "chosenEgg== null">
+     {{changebutton? 'lancer' : 'arreter'}}
     </ion-button>
   </ion-toolbar>
 </ion-footer>
