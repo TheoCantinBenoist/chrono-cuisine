@@ -1,0 +1,7 @@
+{
+  "name": "chronometre-cuisine",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
