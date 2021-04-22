@@ -11,12 +11,12 @@ export class HomePage {
     {
       title: 'coque',
       image: 'img/oeuf-coque.jpg',
-      timer: 10,
+      timer: 3,
     },
     {
       title: 'mollet',
       image: 'img/oeuf-mollet.jpg',
-      timer: 6,
+      timer: 3,
     }
   ]
   public chosenEgg = null;
@@ -29,7 +29,7 @@ export class HomePage {
   public guessEgg(clickedEgg) {
     this.chosenEgg = clickedEgg
   }
-
+  
 
   constructor(private toastCtrl: ToastController) { }
 
@@ -45,32 +45,46 @@ export class HomePage {
 
   }
 
+  
   public play() {
     console.log(this.chosenEgg)
-
     this.startTimer();
+    
+  
   }
 
   public stop() {
     clearInterval(this.timer)
     this.secondsLeft = 0;
     this.chosenEgg=null;
+    
   }
 
 
-
-
-  private startTimer() {
+  private  startTimer() {
     this.secondsLeft = this.chosenEgg.timer
     this.timer = setInterval(
-      () => {
-        this.secondsLeft--
+     async() => {
+        this.secondsLeft--;
+        let message = this.chosenEgg.title + ' ' + this.secondsLeft;
+        const toast = await this.toastCtrl.create({
+          message:message,
+          position:'middle',
+          color:"warning", 
+        });
+        toast.present()
+        {true};
+        
+       
+
         console.log(this.secondsLeft)
         if (this.secondsLeft == 0) {
           this.audio = new Audio(this.file)
           this.audio.load();
-          this.audio.play();
+          this.audio.play();  
           clearInterval(this.timer);
+          toast.present()
+        {false};
         }
       }, 1000
     )
